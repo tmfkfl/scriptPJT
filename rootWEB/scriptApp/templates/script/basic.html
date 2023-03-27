@@ -20,6 +20,10 @@
 
           <button id="btn">click</button>
           <span id="result">여기는 결과를 출력하는 영역입니다.</span>
+
+          <button id="btn2">click</button>
+          <span id="result2">여기는 결과 출력</span>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script>
        console.log('1111')
@@ -44,6 +48,15 @@
 
           //json 형식
           var testlst = [{'key' : 'value'},{'key' : 'value'},{'key' : 'value'}]
+
+
+          $('#btn2').click(function(){
+               $('#result2')
+               .empty()
+               .html("<font color='red'>gggggggggg</font>")
+
+          })
+
    </script>
 </body>
 </html>
