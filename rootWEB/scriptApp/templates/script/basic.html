@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스크립트 기본 문법</title>
+
+</head>
+
+<body>
+          <pre>
+            기본문법
+            -프로그래밍 언어이다 보니 변수, 제어문, 반복문, 함수개념이 존재한다.(대소문자구별)
+            - 인터프리터기반의 언어
+            - DOM(Documnet Object Model)제어의(태그 추가, 태그 삭제, 태그 속성을 변경) 역할을 한다.
+            - 통신이 가능하다(비동기통신 - AJAX) - RestAPI Service(Open API 통신) - JSON
+            - 내장객체를 가지고 있는데(브라우저 - window,  문서 - documnet )
+            - 스크립트 lib - jQuery
+            - 이벤트(대상, 핸들러(이벤트 처리 로직))
+          </pre>
+
+          <button id="btn">click</button>
+          <span id="result">여기는 결과를 출력하는 영역입니다.</span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script>
+       console.log('1111')
+       alert('11')
+       $(document).ready(function(){
+         $('#btn').click(function(){
+              alert('222')
+             // window.alert('이벤트 발생 감지하였습니다')
+            $('#result')
+             .empty()
+             .html("<font color='red'>데이터 변경</font>")
+         })
+       })
+
+       console.log('22222222')
+        //아이디 요소를 취득하는 함수로 getElementById(id)
+          var spanObj = document.getElementById('result');
+          spanObj.textContent = '기본 스크립트를 이용한 요소 접근';
+
+
+          var testObj = {'key' : 'value'}
+
+          //json 형식
+          var testlst = [{'key' : 'value'},{'key' : 'value'},{'key' : 'value'}]
+   </script>
+</body>
+</html>

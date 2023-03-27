@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom 문서 제어</title>
+</head>
+<body>
+
+<form>
+  <input type="text" name="msg" id="msg">
+  <input type="button" value="send" onclick="showMsg()">
+</form>
+
+<form id="loginForm">
+  <input type="text" name="id" id="id">
+  <input type="text" name="pwd" id="pwd">
+  <input type="button" value="send" id="sendBtn">
+</form>
+
+<p/>
+<button id="btn">조회</button>
+<table border="1">
+  <tr><th>아이디</th><th>패스워드</th></tr>
+  <tbody id="tbody"></tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+     var msg = '스크립트에서 변수 선언';
+
+     function showMsg() {
+
+         console.log("debug>>>>>> showMsg() call")
+         var value = document.getElementById('msg').value;
+         window.alert('value = ' + value);
+         if(value== ''){
+           window.alert('메시지를 입력하세요')
+         }else{
+           window.alert('value =' + value);
+         }
+     }
+
+      //JSON 형식
+      user_lst = [{'id' : 'jslim', 'pwd' : 'jslim'}, {'id' : 'admin', 'pwd' : 'admin'}]
+
+     $(document).ready(function(){
+       $('#sendBtn').click(function(){
+         var id = $('#id').val()
+         var pwd = $('#pwd').val()
+         if(id == '' || pwd == ''){
+            window.alert("아이디 또는 패스워드를 입력하세요");
+         }else {
+            $('#loginForm')
+            .prop('method','get')
+            .prop('action','login')
+            .submit();
+         }
+       })
+
+       $('#btn').click(function() {
+         window.alert('click btn')
+         txt = ''
+         $.each(user_lst, function(idx, obj){
+           //window.alert(obj.id + "," + obj.pwd)
+           txt += '<tr>'
+           txt += '<td>'+obj.id+'</td><td>'+obj.pwd+'</td>'
+           txt += '</tr>'
+         })
+         //window.alert(txt)
+         $('#tbody')
+         .empty()
+         .html(txt)
+       })
+
+     })
+</script>
+
+</body>
+</html>
